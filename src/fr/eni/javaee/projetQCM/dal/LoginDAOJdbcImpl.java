@@ -3,54 +3,46 @@ package fr.eni.javaee.projetQCM.dal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import fr.eni.javaee.projetQCM.bo.User;
 
 public class LoginDAOJdbcImpl implements LoginDAO {
 
 	
-	public static final String SELECT="SELECT * FROM UTILISATEUR(id, nom, prenom, email, password, codeProfil);";
+	public static final String SELECT="SELECT * FROM UTILISATEUR WHERE nom=?;";
 	
 	
-		public void User(int id, String nom, String prenom, String email, String password, int codeProfil, String codePromo) {
+		public User selectUser(String nom) {
 			Connection conn = null;
-			User user;
+			User userLog = null;
+			
 			PreparedStatement rqt = null;
-			ResultSet rs;
+			
+			ResultSet rs = null;
 
 			try { 
 				conn = ConnectionProvider.getConnection();
 				rqt = conn.prepareStatement(SELECT);
-				rqt.setInt(1, id);
-				rqt.setString(2, nom);
-				rqt.setString(3, prenom);
-				rqt.setString(4, email);
-				rqt.setString(5, password);
-				rqt.setInt(6, codeProfil);
-				rqt.setString(7, codePromo);
-				
+				rqt.setString(1, nom);
+
 				rs = rqt.executeQuery();
 
 				if (rs.next()) {
 
-					user = new User(rs.getInt("id"),
-							rs.getString("Nom"), rs.getString("Prenom"),
+					userLog = new User(rs.getInt("idUtilisateur"),
+							rs.getString("nom"), rs.getString("prenom"),
 							rs.getString("email"),rs.getString("password"),
 							rs.getInt("codeProfil"), rs.getString("codePromo"));
-					
 				}
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
-			return user;
+			return userLog;
 		}
 
 
-		@Override
-		public void User() {
-			// TODO Auto-generated method stub
-			
-		}
-	
+
 	
 	
 }
