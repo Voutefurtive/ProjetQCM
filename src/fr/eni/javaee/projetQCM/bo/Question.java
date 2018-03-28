@@ -6,10 +6,10 @@ public class Question {
 	
 	private int id;
 	private String enonce;
-	private String media;
+	private String media = null;
 	private int points;
 	private List<Proposition> propositions;
-	private boolean estMarquee;
+	private boolean estMarquee = false;
 	
 	public Question() {
 		super();
@@ -53,6 +53,10 @@ public class Question {
 
 	public void setPropositions(List<Proposition> propositions) {
 		this.propositions = propositions;
+	}
+	
+	public void addProposition(Proposition proposition) {
+		this.propositions.add(proposition);
 	}
 
 	public boolean isEstMarquee() {
