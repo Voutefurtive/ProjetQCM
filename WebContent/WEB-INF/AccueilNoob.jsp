@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Accueil</title>
+<title>Accueil candidat</title>
 </head>
 <body>
-		<h1>Bienvenue</h1>
+		<h1>Bienvenue noobish</h1>
 		
 </body>
 </html>

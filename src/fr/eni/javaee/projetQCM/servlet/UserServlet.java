@@ -28,19 +28,31 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String log;
 		String mdp;
-	
+
 		log = req.getParameter("nom");
 		mdp = req.getParameter("password");
 		
-		System.out.println(log+" - "+mdp);
-		
 		UserManager userManager = new UserManager();
 		boolean user = userManager.authentification(log, mdp);
-		//System.out.println(user);
-
+		
+		int role = userManager.roles(log);
+		System.out.println(role);
+		
 		if (user == true) {
-			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/Accueil.jsp");
-			rd.forward(req, resp);
+			
+		//	switch (role) {
+		//	case 1: if ( role == 1) {
+				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/AccueilAdmin.jsp");
+				rd.forward(req, resp);
+	/*		}
+				break;	
+
+			default:
+				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/AccueilNoob.jsp");
+				rd.forward(req, resp);
+				break;
+			}
+			*/
 		} else {
 			doGet(req, resp);
 		}
