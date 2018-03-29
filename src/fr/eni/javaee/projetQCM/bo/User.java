@@ -16,6 +16,13 @@ public class User {
 	}
 	
 	
+	public User(String nom, int codeProfil) {
+		super();
+		this.nom = nom;
+		this.codeProfil = codeProfil;
+	}
+
+
 	public User(int id, String nom, String prenom, String email, String password, int codeProfil, String codePromo) {
 		super();
 		this.id = id;
