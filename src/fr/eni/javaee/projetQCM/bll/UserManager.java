@@ -14,25 +14,21 @@ public class UserManager {
 		
 	}
 	
-	
-	public boolean authentification(String nom, String password) {
-		boolean autorisation = false;
+	public User authentification(String nom, String password) {
+
 		User user = loginDAO.selectUser(nom);
+		
 		if(user!=null) {
-			autorisation = password.equals(user.getPassword());
+			if(password.equals(user.getPassword()) == true) {
+				return user;
+			} else {
+				return null;
+			}
 		}
-		//System.out.println(user.getCodeProfil());
-		return autorisation;
+		
+		return user;
 	}
 	
-	public int roles(String nom) {
-		int role;
-		User  profil = loginDAO.selectUser(nom);
-		//System.out.println(profil.getEmail());
-		role = profil.getCodeProfil();
-		
-		return role;
-	}
 
 }
 	

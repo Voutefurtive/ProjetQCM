@@ -1,36 +1,11 @@
 package fr.eni.javaee.projetQCM.bo;
 
-public class Roles {
+public abstract class Roles {
 
-	int codeProfil;
-	String libelle;
-	
-	
-	public Roles() {
-		super();
-	}
-	public Roles(int codeProfil, String libelle) {
-		super();
-		this.codeProfil = codeProfil;
-		this.libelle = libelle;
-	}
-	
-	public int getCodeProfil() {
-		return codeProfil;
-	}
-	public void setCodeProfil(int codeProfil) {
-		this.codeProfil = codeProfil;
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	
-	@Override
-	public String toString() {
-		return "Roles [codeProfil=" + codeProfil + ", libelle=" + libelle + "]";
-	}
-	
+		public static final int ADMIN = 1;
+		public static final int FORMATEUR = 2;
+		public static final int RESPONSABLE_DE_FORMATION = 3;
+		public static final int CELLULE_DE_RECRUTEMENT = 4;
+		public static final int STAGIAIRE = 5;
+		public static final int CANDIDAT = 6;
 }
