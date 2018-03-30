@@ -1,5 +1,6 @@
-package fr.eni.javaee.projetQCM.bo;
+package fr.eni.javaee.projetQCM.bo.epreuves;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
@@ -8,8 +9,9 @@ public class Question {
 	private String enonce;
 	private String media = null;
 	private int points;
-	private List<Proposition> propositions;
+	private List<Proposition> propositions = new ArrayList<Proposition>();
 	private boolean estMarquee = false;
+	private Theme theme;
 	
 	public Question() {
 		super();
@@ -66,7 +68,13 @@ public class Question {
 	public void setEstMarquee(boolean estMarquee) {
 		this.estMarquee = estMarquee;
 	}
-	
-	
+
+	public Theme getTheme() {
+		return theme;
+	}
+
+	public void setTheme(Theme theme) {
+		this.theme = theme;
+	}
 	
 }
