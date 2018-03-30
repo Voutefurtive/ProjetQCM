@@ -2,9 +2,9 @@ package fr.eni.javaee.projetQCM.dal;
 
 public abstract class DAOFactory {
 	
-	public static LoginDAO getLoginDAO() {
+	public static UserDAO getUserDAO() {
 		
-		return new LoginDAOJdbcImpl();
+		return new UserDAOJdbcImpl();
 	}
 
 }

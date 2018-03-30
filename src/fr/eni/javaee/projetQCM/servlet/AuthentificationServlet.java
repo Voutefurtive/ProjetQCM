@@ -14,8 +14,8 @@ import fr.eni.javaee.projetQCM.bll.UserManager;
 import fr.eni.javaee.projetQCM.bo.Roles;
 import fr.eni.javaee.projetQCM.bo.User;
 
-@WebServlet("/UserServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet("/AuthentificationServlet")
+public class AuthentificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,20 +27,31 @@ public class UserServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// déclaration des variable de la fonction d'authentification.
 		String log;
 		String mdp;
 		int roles = 0;
-		log = req.getParameter("nom");
-		mdp = req.getParameter("password");
 		
+		// récupération des données saisies de l'utilisateur
+		log = req.getParameter("log");
+		mdp = req.getParameter("mdp");
+		
+	
 		// création d'une session avec HttpSession
 		HttpSession session = req.getSession();
-		// passage des attributs
-		session.setAttribute("nom", log);
-        
-
+		
+				// TODO le reste des sesssions
+		
+		// passage des attributs de log à la session pour l'authentification
+		session.setAttribute("log", log);
+	
+		// instantiation d'un userManager
 		UserManager userManager = new UserManager();
+		
+		// récupération de la fonction d'authentification du manager
 		User user = userManager.authentification(log, mdp);
+	
 		
 		if(user!=null) {
 			roles = user.getCodeProfil();
@@ -55,6 +66,7 @@ public class UserServlet extends HttpServlet {
 			break;
 			
 		case Roles.FORMATEUR:
+			System.out.println("on est là !");
 			rd = req.getRequestDispatcher("/WEB-INF/AccueilNoob.jsp");
 			break;
 			

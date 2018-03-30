@@ -11,11 +11,10 @@
 	<h1>Veuillez vous connecter</h1>
 	<!--  -->
 	<form action="login" method="post">
-	
-	
+
 		<p>
-			<label>Login : </label><input type="text" id="nom" name="nom">
-			<label>Password : </label><input type="text" id="password" name="password">
+			<label>Login : </label><input type="text" id="log" name="log">
+			<label>Password : </label><input type="text" id="mdp" name="mdp">
 		</p>
 		<input type="submit" id="valider" value="valider">
 		

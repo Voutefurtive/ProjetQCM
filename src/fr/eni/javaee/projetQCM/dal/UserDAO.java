@@ -2,10 +2,10 @@ package fr.eni.javaee.projetQCM.dal;
 
 import fr.eni.javaee.projetQCM.bo.User;
 
-public interface LoginDAO {
+public interface UserDAO {
 
 	public User selectUser(String nom);
 	
-	// public User selectUser(int codeProfil);
+	public void insertUser(User newUser);
 	
 }

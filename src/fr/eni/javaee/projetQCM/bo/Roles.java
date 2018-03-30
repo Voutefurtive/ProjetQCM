@@ -1,6 +1,6 @@
 package fr.eni.javaee.projetQCM.bo;
 
-public abstract class Roles {
+public class Roles {
 
 		public static final int ADMIN = 1;
 		public static final int FORMATEUR = 2;
