@@ -1,4 +1,4 @@
-package fr.eni.javaee.projetQCM.bo;
+package fr.eni.javaee.projetQCM.bo.epreuves;
 
 public class Proposition {
 

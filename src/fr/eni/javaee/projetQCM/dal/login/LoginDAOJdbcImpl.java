@@ -1,4 +1,4 @@
-package fr.eni.javaee.projetQCM.dal;
+package fr.eni.javaee.projetQCM.dal.login;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import fr.eni.javaee.projetQCM.bo.User;
+import fr.eni.javaee.projetQCM.dal.ConnectionProvider;
 
 public class LoginDAOJdbcImpl implements LoginDAO {
 

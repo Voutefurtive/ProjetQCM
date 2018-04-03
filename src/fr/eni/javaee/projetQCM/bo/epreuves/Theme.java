@@ -1,4 +1,4 @@
-package fr.eni.javaee.projetQCM.bo;
+package fr.eni.javaee.projetQCM.bo.epreuves;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ public class Theme {
 	private int id;
 	private String libelle;
 	private List<Question> questions;
+	private List<SectionTest> sections;
 	
 	public Theme() {
 		super();
@@ -36,6 +37,20 @@ public class Theme {
 		this.questions = questions;
 	}
 	
+	public void addQuestion(Question question) {
+		this.questions.add(question);
+	}
+
+	public List<SectionTest> getSections() {
+		return sections;
+	}
+
+	public void setSections(List<SectionTest> sections) {
+		this.sections = sections;
+	}
 	
+	public void addSection(SectionTest section) {
+		this.sections.add(section);
+	}
 	
 }
