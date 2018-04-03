@@ -9,8 +9,9 @@ import fr.eni.javaee.projetQCM.dal.question.QuestionDAOJdbcImpl;
 
 public abstract class DAOFactory {
 	
-	public static LoginDAO getLoginDAO() {
-		return new LoginDAOJdbcImpl();
+	public static UserDAO getUserDAO() {
+		
+		return new UserDAOJdbcImpl();
 	}
 	
 	public static QuestionDAO getQuestionDAO() {

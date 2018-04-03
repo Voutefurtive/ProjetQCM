@@ -14,11 +14,22 @@ public class User {
 	public User() {
 		super();
 	}
-	
-	
+
+
 	public User(int id, String nom, String prenom, String email, String password, int codeProfil, String codePromo) {
 		super();
 		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.password = password;
+		this.codeProfil = codeProfil;
+		this.codePromo = codePromo;
+	}
+
+
+	public User(String nom, String prenom, String email, String password, int codeProfil, String codePromo) {
+		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
