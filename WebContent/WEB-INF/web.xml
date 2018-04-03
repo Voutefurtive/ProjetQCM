@@ -14,7 +14,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>login</servlet-name>
-    <servlet-class>fr.eni.javaee.projetQCM.servlet.AuthentificationServlet</servlet-class>
+    <servlet-class>fr.eni.javaee.projetQCM.servlets.AuthentificationServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>login</servlet-name>
@@ -22,7 +22,7 @@
   </servlet-mapping>
     <servlet>
     <servlet-name>admin</servlet-name>
-    <servlet-class>fr.eni.javaee.projetQCM.servlet.NewUserServlet</servlet-class>
+    <servlet-class>fr.eni.javaee.projetQCM.servlets.NewUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>admin</servlet-name>

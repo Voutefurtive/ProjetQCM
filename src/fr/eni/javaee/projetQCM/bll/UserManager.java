@@ -13,12 +13,25 @@ public class UserManager {
 
 	}
 
+	@SuppressWarnings({ "static-access", "unused" })
 	public User authentification(String nom, String password) {
-
+		
+		PasswordHashMD5 pa = new PasswordHashMD5();
+		
 		User user = userDAO.selectUser(nom);
-
+		
+	//	String moche = "tonton";
+	//	moche = pa.cryptWithMD5(password);
+	//	String mdp = user.getPassword();
+		String mdp = pa.cryptWithMD5(password);
+		
+		System.out.println("le mdp base haché est : " + user.getPassword());
+		System.out.println("le mdp saisie est : " + password);
+	//	System.out.println("le mdp moche est " + moche);
+		System.out.println("le mdp saisie puis steak est " + mdp);
+		
 		if (user != null) {
-			if (password.equals(user.getPassword()) == true) {
+			if (mdp.equals(user.getPassword()) == true) {
 				return user;
 			} else {
 				return null;

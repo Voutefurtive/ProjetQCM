@@ -58,7 +58,7 @@ public class AuthentificationServlet extends HttpServlet {
 			session.setAttribute("utilisateur", user); // spla
 		
 		}
-		
+
 		RequestDispatcher rd = null;
 		switch (roles) {
 		case Roles.ADMIN:
@@ -66,7 +66,6 @@ public class AuthentificationServlet extends HttpServlet {
 			break;
 			
 		case Roles.FORMATEUR:
-			System.out.println("on est là !");
 			rd = req.getRequestDispatcher("/WEB-INF/AccueilNoob.jsp");
 			break;
 			
@@ -85,7 +84,9 @@ public class AuthentificationServlet extends HttpServlet {
 		default:
 			//req.setAttribute("erreur", "Login ou mot de passe incorrect");
 			doGet(req, resp);
+			break;
 		}
-
-	rd.forward(req,resp);
+	if (roles!=0) {
+		rd.forward(req,resp);		
+	}
 }}
