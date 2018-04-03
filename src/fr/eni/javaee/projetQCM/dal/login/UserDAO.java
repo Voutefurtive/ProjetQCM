@@ -1,4 +1,4 @@
-package fr.eni.javaee.projetQCM.dal;
+package fr.eni.javaee.projetQCM.dal.login;
 
 import fr.eni.javaee.projetQCM.bo.User;
 

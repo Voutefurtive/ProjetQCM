@@ -2,8 +2,8 @@ package fr.eni.javaee.projetQCM.dal;
 
 import fr.eni.javaee.projetQCM.dal.epreuve.EpreuveDAO;
 import fr.eni.javaee.projetQCM.dal.epreuve.EpreuveDAOJdbcImpl;
-import fr.eni.javaee.projetQCM.dal.login.LoginDAO;
-import fr.eni.javaee.projetQCM.dal.login.LoginDAOJdbcImpl;
+import fr.eni.javaee.projetQCM.dal.login.UserDAO;
+import fr.eni.javaee.projetQCM.dal.login.UserDAOJdbcImpl;
 import fr.eni.javaee.projetQCM.dal.question.QuestionDAO;
 import fr.eni.javaee.projetQCM.dal.question.QuestionDAOJdbcImpl;
 

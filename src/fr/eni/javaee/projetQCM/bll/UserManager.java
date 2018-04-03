@@ -2,7 +2,7 @@ package fr.eni.javaee.projetQCM.bll;
 
 import fr.eni.javaee.projetQCM.bo.User;
 import fr.eni.javaee.projetQCM.dal.DAOFactory;
-import fr.eni.javaee.projetQCM.dal.UserDAO;
+import fr.eni.javaee.projetQCM.dal.login.UserDAO;
 
 public class UserManager {
 

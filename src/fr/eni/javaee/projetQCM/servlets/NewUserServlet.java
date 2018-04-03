@@ -1,4 +1,4 @@
-package fr.eni.javaee.projetQCM.servlet;
+package fr.eni.javaee.projetQCM.servlets;
 
 import java.io.IOException;
 
