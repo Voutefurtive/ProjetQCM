@@ -36,6 +36,14 @@ public class UserDAOJdbcImpl implements UserDAO {
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+		} finally {
+			try {
+				conn.close();
+				rqt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return userLog;
 	}

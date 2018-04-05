@@ -29,10 +29,12 @@ public class EpreuveDAOJdbcImpl implements EpreuveDAO {
 	@Override
 	public List<Epreuve> selectEpreuvesByUser(int idUser){
 		List<Epreuve> epreuves = new ArrayList<>();
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
 		
 		try {
-			Connection cnx = ConnectionProvider.getConnection();
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_USER);
+			cnx = ConnectionProvider.getConnection();
+			pstmt = cnx.prepareStatement(SELECT_BY_USER);
 			pstmt.setInt(1, idUser);
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -53,18 +55,31 @@ public class EpreuveDAOJdbcImpl implements EpreuveDAO {
 						test);
 				
 				epreuves.add(epreuveCourante);
+				
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				cnx.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return epreuves;
 	}
 
 	public void saveQuestionnaire(List<Question> questionnaire, int idEpreuve) {
+		
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		
 		try {
-			Connection cnx = ConnectionProvider.getConnection();
-			PreparedStatement pstmt = cnx.prepareStatement(INSERT_QUESTIONS_TIRAGE);
+			cnx = ConnectionProvider.getConnection();
+			pstmt = cnx.prepareStatement(INSERT_QUESTIONS_TIRAGE);
 			
 			for (Question question : questionnaire) {
 				pstmt.setInt(1, question.getId());
@@ -75,6 +90,13 @@ public class EpreuveDAOJdbcImpl implements EpreuveDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				cnx.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}

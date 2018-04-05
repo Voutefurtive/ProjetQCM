@@ -6,6 +6,7 @@ package fr.eni.javaee.projetQCM.dal.test;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +30,9 @@ public class TestDAOJdbcImpl implements TestDAO {
 		
 		List<SectionTest> sections = new ArrayList<SectionTest>();
 		
-		Connection cnx;
-		PreparedStatement pstmt;
-		ResultSet rs;
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			cnx = ConnectionProvider.getConnection();
@@ -53,6 +54,14 @@ public class TestDAOJdbcImpl implements TestDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			try {
+				cnx.close();
+				pstmt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return sections;
