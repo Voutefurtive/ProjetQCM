@@ -28,4 +28,12 @@
     <servlet-name>admin</servlet-name>
     <url-pattern>/admin</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>inscription</servlet-name>
+    <servlet-class>fr.eni.javaee.projetQCM.servlets.ServletInscriptionTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inscription</servlet-name>
+    <url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
 </web-app>
