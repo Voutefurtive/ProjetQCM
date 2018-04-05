@@ -12,6 +12,7 @@ public class Question {
 	private List<Proposition> propositions = new ArrayList<Proposition>();
 	private boolean estMarquee = false;
 	private Theme theme;
+	private int numOrdre;
 	
 	public Question() {
 		super();
@@ -75,6 +76,14 @@ public class Question {
 
 	public void setTheme(Theme theme) {
 		this.theme = theme;
+	}
+
+	public int getNumOrdre() {
+		return numOrdre;
+	}
+
+	public void setNumOrdre(int numOrdre) {
+		this.numOrdre = numOrdre;
 	}
 	
 }

@@ -5,6 +5,7 @@ public class Proposition {
 		private int id;
 		private String enonce;
 		private boolean estBonne;
+		private boolean cochee = false;
 		
 		public Proposition() {
 			super();
@@ -33,4 +34,15 @@ public class Proposition {
 		public void setEstBonne(boolean estBonne) {
 			this.estBonne = estBonne;
 		}
+
+		public boolean isCochee() {
+			return cochee;
+		}
+
+		public void setCochee(boolean cochee) {
+			this.cochee = cochee;
+		}
+		
+		
+		
 }

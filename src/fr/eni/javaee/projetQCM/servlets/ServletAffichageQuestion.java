@@ -10,9 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.projetQCM.bll.EpreuveManager;
 import fr.eni.javaee.projetQCM.bo.epreuves.Question;
+import fr.eni.javaee.projetQCM.bo.epreuves.SectionTest;
+import fr.eni.javaee.projetQCM.bo.epreuves.Test;
 
 /**
  * Servlet implementation class ServletAffichageQuestion
@@ -24,13 +27,58 @@ public class ServletAffichageQuestion extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		EpreuveManager mger = new EpreuveManager();
-		List<Question> questionnaire = new ArrayList<Question>();
 		
-		request.setAttribute("questionnaire", mger.getSectionByTheme(2,1));
+		HttpSession session = request.getSession();
+		
+		// Création de la liste de questions
+		if (session.getAttribute("questionnaire")==null) {
+			Test test = (Test)session.getAttribute("test");
+			List<Question> questionnaire = new ArrayList<Question>();
+			
+			test.setSections(mger.getSections(test.getIdTest()));
+			
+			for (SectionTest sectionTest : test.getSections()) {
+				questionnaire.addAll(mger.getSectionByTheme(sectionTest.getNbQuestion(),sectionTest.getIdTheme()));
+			}
+			
+			int index = 0;
+			for (Question question : questionnaire) {
+				question.setNumOrdre(index);
+				index++;
+			}
+			
+			session.setAttribute("questionnaire", questionnaire);
+			session.setAttribute("nbQuestions", questionnaire.size());
+			session.setAttribute("questionCourante", questionnaire.get(0));
+		}		
+		
+		System.out.println(request.getParameter("idQuestion"));
+		
+		if ("1".equals(request.getParameter("idQuestion"))) {
+			session.setAttribute("questionCourante", ((List<Question>)session.getAttribute("questionnaire")).get(Integer.parseInt(request.getParameter("idQuestion"))));
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/affichageQuestion.jsp");
 		rd.forward(request, response);
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		List<Question> questionnaire = (List<Question>)session.getAttribute("questionnaire");
+		if(request.getParameter("proposition")!=null) {
+			((Question)session.getAttribute("questionCourante")).getPropositions().get(Integer.parseInt(request.getParameter("proposition"))).setCochee(true);			
+		}
+		int numQuestion = ((Question)session.getAttribute("questionCourante")).getNumOrdre();
+		System.out.println(numQuestion);
+		session.setAttribute("questionCourante", questionnaire.get(numQuestion+1));
+		
+		doGet(request, response);
+		
 	}
 }
