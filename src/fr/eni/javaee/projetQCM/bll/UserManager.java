@@ -28,9 +28,9 @@ public class UserManager {
 	//	String mdp = user.getPassword();
 		String mdp = pa.cryptWithMD5(password);
 		
-		System.out.println("le mdp base haché est : " + user.getPassword());
-		System.out.println("le mdp saisie est : " + password);
-		System.out.println("le mdp saisie puis steak est " + mdp);
+//		System.out.println("le mdp base haché est : " + user.getPassword());
+//		System.out.println("le mdp saisie est : " + password);
+//		System.out.println("le mdp saisie puis steak est " + mdp);
 		
 		if (user != null) {
 			if (mdp.equals(user.getPassword()) == true) {

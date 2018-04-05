@@ -15,7 +15,7 @@
 
 		<p>
 			<label>Login : </label><input type="text" id="log" name="log">
-			<label>Password : </label><input type="text" id="mdp" name="mdp">
+			<label>Password : </label><input type="password" id="mdp" name="mdp">
 		</p>
 		<input type="submit" id="valider" value="valider">
 		

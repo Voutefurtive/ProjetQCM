@@ -58,8 +58,6 @@ public class ServletAffichageQuestion extends HttpServlet {
 			session.setAttribute("questionCourante", questionnaire.get(0));
 		}		
 		
-		System.out.println(request.getParameter("idQuestion"));
-		
 		if ("0".equals(request.getParameter("numOrdre")) || "1".equals(request.getParameter("numOrdre")) || "2".equals(request.getParameter("numOrdre"))) {
 			session.setAttribute("questionCourante", ((List<Question>)session.getAttribute("questionnaire")).get(Integer.parseInt(request.getParameter("numOrdre"))));
 		}
