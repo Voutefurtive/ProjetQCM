@@ -23,24 +23,6 @@
 			 <input type="button" id="inscriptionPromo" value="inscription"> </p>
 		<p> <label> Désinscrire une promotion à un test </label>
 			 <input type="button" id="desinscriptionCandidat" value="desinscription"> </p>
-			 
-			 
-			 		<form action="admin" method="post">
-		
-			
-			<p> <label> Nom : </label> <input type="text" id="nom" name="nom"> </p>
-			<p> <label> Prenom : </label> <input type="text" id="prenom" name="prenom"> </p>
-			<p> <label> Email : </label>  <input type="text" id="email" name="email"> </p>
-			<p> <label> Profil :  
-				<select name="codeProfil">
- 				 <option value="${ Roles.CANDIDAT }" selected="selected">Candidat</option>
-			</select> </p>
-			<p> <label> Le password du nouvel utilisateur est généré automatiquement</label> </p>
-			<p> <label> Code de la promotion (facultatif) : <input type="text" id="codePromo" name="codePromo"> </label> </p>
-		
-			<p> <input type="submit" id="soumettre" value="Soumettre"> </p>
-		
-		</form>
 	
 </body>
 </html>

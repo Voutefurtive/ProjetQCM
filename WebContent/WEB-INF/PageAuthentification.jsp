@@ -10,15 +10,19 @@
 </head>
 <body>
 	<h1>Veuillez vous connecter</h1>
-	<!--  -->
-	<form action="login" method="post">
 
-		<p>
-			<label>Login : </label><input type="text" id="log" name="log">
-			<label>Password : </label><input type="password" id="mdp" name="mdp">
-		</p>
-		<input type="submit" id="valider" value="valider">
-		
-	</form>
+	<div id="loginField">
+		<form action="login" method="post">
+	
+			<div>
+				 <label>Login : <input type="text" id="log" name="log"></label>
+			</div>
+			<div>
+				<label>Password : <input type="password" id="mdp" name="mdp"></label>
+			</div>
+			<input type="submit" id="valider" value="valider">
+			
+		</form>
+	</div>
 </body>
 </html>

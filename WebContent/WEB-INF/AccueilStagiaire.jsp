@@ -16,11 +16,6 @@
 		
 		<h2> Vous êtes connecté en tant que Stagiaire </h2>
 		
-		
-		<p> <label> Inscrire un candidat à un test </label> 
-			<input type="button" id="inscriptionCandidat" value="inscription"> </p>
-		<p> <label> Inscrire une promotion à un test </label>
-			 <input type="button" id="inscriptionPromo" value="inscription"> </p>
-	
+
 </body>
 </html>

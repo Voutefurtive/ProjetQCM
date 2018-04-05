@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
-body{
-	
+#loginField {
+	text-align: center;
+}
+
+div input{
+	text-align: right;
 }
