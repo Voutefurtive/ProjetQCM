@@ -20,8 +20,7 @@
 		
 		<c:if test="${!empty newMdp}">
 			<p>Nouvel utilisateur ajouté !</p><br>
-			<p>identifiant : ${nom}</p><br>
-			<p>mdp : ${newMdp}</p>
+			<p>identifiant : ${nom} - mdp : ${newMdp}</p>
 			<hr>		
 		</c:if>
 		

@@ -16,8 +16,9 @@
 		<hr>
 		<p>Durée : ${sessionScope.test.duree} min</p><br>
 		
-		<a href="question" type="button" class="btn btn-success">Commencer le test</a>
+		<a href="question" type="button" class="btn btn-success">Accès au test</a>
 		
+<!-- 		<a href="question" type="button" class="btn btn-warning">Poursuivre le test</a> -->
 		
 	</body>
 </html>

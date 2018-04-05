@@ -61,6 +61,7 @@ public class AuthentificationServlet extends HttpServlet {
 		}
 
 		RequestDispatcher rd = null;
+		EpreuveManager epreuveMger = null;
 		switch (roles) {
 		case Roles.ADMIN:
 			rd = req.getRequestDispatcher("/WEB-INF/AccueilAdmin.jsp");
@@ -82,12 +83,14 @@ public class AuthentificationServlet extends HttpServlet {
 			System.out.println(roles);
 			break;
 		case Roles.STAGIAIRE:
-			rd = req.getRequestDispatcher("/WEB-INF/AccueilStagiaire.jsp");
-			System.out.println(roles);
+			epreuveMger = new EpreuveManager();
+			req.setAttribute("epreuves", epreuveMger.getEpreuvesByUser(user.getId()));
+			
+			rd = req.getRequestDispatcher("/WEB-INF/selectionEpreuve.jsp");
 			break;
 			
 		case Roles.CANDIDAT:
-			EpreuveManager epreuveMger = new EpreuveManager();
+			epreuveMger = new EpreuveManager();
 			req.setAttribute("epreuves", epreuveMger.getEpreuvesByUser(user.getId()));
 			
 			rd = req.getRequestDispatcher("/WEB-INF/selectionEpreuve.jsp");

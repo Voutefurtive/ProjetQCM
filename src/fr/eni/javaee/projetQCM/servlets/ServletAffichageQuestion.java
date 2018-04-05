@@ -56,7 +56,7 @@ public class ServletAffichageQuestion extends HttpServlet {
 			session.setAttribute("questionnaire", questionnaire);
 			session.setAttribute("nbQuestions", questionnaire.size());
 			session.setAttribute("questionCourante", questionnaire.get(0));
-		}		
+		}
 		
 		if ("0".equals(request.getParameter("numOrdre")) || "1".equals(request.getParameter("numOrdre")) || "2".equals(request.getParameter("numOrdre"))) {
 			session.setAttribute("questionCourante", ((List<Question>)session.getAttribute("questionnaire")).get(Integer.parseInt(request.getParameter("numOrdre"))));
