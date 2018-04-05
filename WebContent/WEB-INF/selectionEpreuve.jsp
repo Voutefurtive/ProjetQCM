@@ -9,6 +9,7 @@
 		<%@include file="/WEB-INF/imports.html" %>
 	</head>
 	<body>
+		<%@include file="/WEB-INF/header.html" %>
 		<h2>Tests dispo du candidat ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom}</h2>
 		<c:forEach var="epreuve" items="${epreuves}">
 <%-- 			<c:choose> --%>
@@ -19,7 +20,7 @@
 <%-- 					<label>Épreuve n°${epreuve.idEpreuve} (Vous n'avez pas accès à cette épreuve avant le ${epreuve.dateDebut})</label><br> --%>
 <%-- 				</c:when> --%>
 <%-- 			</c:choose> --%>
-			<a href="detailTest?idTest=${epreuve.test.idTest }&idEpreuve=${epreuve.idEpreuve}">Épreuve n°${epreuve.idEpreuve}</a><br>
+			<a href="detailTest?idTest=${epreuve.test.idTest }&idEpreuve=${epreuve.idEpreuve}">Épreuve n°${epreuve.idEpreuve} : ${epreuve.test.libelle }</a><br>
 		</c:forEach>
 	</body>
 </html>

@@ -9,7 +9,7 @@
 <title>Accueil candidat</title>
 </head>
 <body>
-
+	<%@include file="/WEB-INF/header.html" %>
 		<c:if test="${!empty sessionScope.utilisateur.nom }">
 		<h1>Wouelkom ${ sessionScope.utilisateur.nom } !</h1>
 		</c:if>

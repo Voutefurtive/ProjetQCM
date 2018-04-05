@@ -9,7 +9,7 @@
 <title> Inscriptions </title>
 </head>
 <body>
-
+	<%@include file="/WEB-INF/header.html" %>
 		<h1> Inscription des candidats </h1> 
 		
 		<form action="inscription" method="post">
