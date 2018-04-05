@@ -18,6 +18,13 @@
 		
 		<h2> Gestion des comptes utilisateurs </h2>
 		
+		<c:if test="${!empty newMdp}">
+			<p>Nouvel utilisateur ajouté !</p><br>
+			<p>identifiant : ${nom}</p><br>
+			<p>mdp : ${newMdp}</p>
+			<hr>		
+		</c:if>
+		
 		<label> Nouvel Utilisateur </label>
 		
 			<p> <label> Veuillez choisir le type de compte à créer :</label> </p>
