@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Accueil candidat</title>
+<%@include file="/WEB-INF/imports.html" %>
 </head>
 <body>
 	<%@include file="/WEB-INF/header.html" %>
