@@ -46,7 +46,7 @@
 		</c:if>
 		
 		<c:forEach var="question" items="${sessionScope.questionnaire}">
-			<a href="question?idQuestion=${question.numOrdre }">Question n°${question.id }</a>
+			<a href="question?numOrdre=${question.numOrdre }">Question n°${question.numOrdre+1 }</a>
 		</c:forEach>
 	</body>
 </html>

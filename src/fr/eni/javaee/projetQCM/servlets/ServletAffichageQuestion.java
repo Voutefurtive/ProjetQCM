@@ -51,6 +51,8 @@ public class ServletAffichageQuestion extends HttpServlet {
 				index++;
 			}
 			
+			mger.saveQuestionnaire(questionnaire, (int)session.getAttribute("idEpreuve"));
+			
 			session.setAttribute("questionnaire", questionnaire);
 			session.setAttribute("nbQuestions", questionnaire.size());
 			session.setAttribute("questionCourante", questionnaire.get(0));
@@ -58,8 +60,8 @@ public class ServletAffichageQuestion extends HttpServlet {
 		
 		System.out.println(request.getParameter("idQuestion"));
 		
-		if ("1".equals(request.getParameter("idQuestion"))) {
-			session.setAttribute("questionCourante", ((List<Question>)session.getAttribute("questionnaire")).get(Integer.parseInt(request.getParameter("idQuestion"))));
+		if ("0".equals(request.getParameter("numOrdre")) || "1".equals(request.getParameter("numOrdre")) || "2".equals(request.getParameter("numOrdre"))) {
+			session.setAttribute("questionCourante", ((List<Question>)session.getAttribute("questionnaire")).get(Integer.parseInt(request.getParameter("numOrdre"))));
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/affichageQuestion.jsp");
@@ -72,7 +74,7 @@ public class ServletAffichageQuestion extends HttpServlet {
 		HttpSession session = request.getSession();
 		List<Question> questionnaire = (List<Question>)session.getAttribute("questionnaire");
 		if(request.getParameter("proposition")!=null) {
-			((Question)session.getAttribute("questionCourante")).getPropositions().get(Integer.parseInt(request.getParameter("proposition"))).setCochee(true);			
+			((Question)session.getAttribute("questionCourante")).getPropositions().get(Integer.parseInt(request.getParameter("proposition"))-1).setCochee(true);			
 		}
 		int numQuestion = ((Question)session.getAttribute("questionCourante")).getNumOrdre();
 		System.out.println(numQuestion);

@@ -32,7 +32,8 @@ public class ServletAccesTest extends HttpServlet {
 		// List<SectionTest> sections =
 		// mger.getSections(Integer.parseInt(request.getParameter("id")));
 
-		session.setAttribute("test", mger.getTestById(Integer.parseInt(request.getParameter("id"))));
+		session.setAttribute("test", mger.getTestById(Integer.parseInt(request.getParameter("idTest"))));
+		session.setAttribute("idEpreuve", Integer.parseInt(request.getParameter("idEpreuve")));
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accesTest.jsp");
 		rd.forward(request, response);

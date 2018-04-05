@@ -45,4 +45,8 @@ public class EpreuveManager {
 	public Test getTestById(int idTest) {
 		return testDAO.getTest(idTest);
 	}
+	
+	public void saveQuestionnaire(List<Question> questionnaire, int idEpreuve) {
+		epreuveDAO.saveQuestionnaire(questionnaire, idEpreuve);
+	}
 }

@@ -19,7 +19,7 @@
 <%-- 					<label>Épreuve n°${epreuve.idEpreuve} (Vous n'avez pas accès à cette épreuve avant le ${epreuve.dateDebut})</label><br> --%>
 <%-- 				</c:when> --%>
 <%-- 			</c:choose> --%>
-			<a href="detailTest?id=${epreuve.test.idTest }">Épreuve n°${epreuve.idEpreuve}</a><br>
+			<a href="detailTest?idTest=${epreuve.test.idTest }&idEpreuve=${epreuve.idEpreuve}">Épreuve n°${epreuve.idEpreuve}</a><br>
 		</c:forEach>
 	</body>
 </html>
