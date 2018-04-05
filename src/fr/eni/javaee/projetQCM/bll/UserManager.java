@@ -1,5 +1,7 @@
 package fr.eni.javaee.projetQCM.bll;
 
+import java.util.List;
+
 import fr.eni.javaee.projetQCM.bo.User;
 import fr.eni.javaee.projetQCM.dal.DAOFactory;
 import fr.eni.javaee.projetQCM.dal.login.UserDAO;
@@ -14,6 +16,7 @@ public class UserManager {
 	}
 
 	@SuppressWarnings({ "static-access", "unused" })
+	
 	public User authentification(String nom, String password) {
 		
 		PasswordHashMD5 pa = new PasswordHashMD5();
@@ -27,7 +30,6 @@ public class UserManager {
 		
 		System.out.println("le mdp base haché est : " + user.getPassword());
 		System.out.println("le mdp saisie est : " + password);
-	//	System.out.println("le mdp moche est " + moche);
 		System.out.println("le mdp saisie puis steak est " + mdp);
 		
 		if (user != null) {
@@ -49,7 +51,20 @@ public class UserManager {
 		
 		userDAO.insertUser(newUser);
 		 
-		
-
 	}
+	
+	public List<User> selectPromo (String codePromo) {
+		
+		List<User> promo = userDAO.selectByPromo(codePromo);
+		
+		if (promo != null) {
+			return promo;
+			
+			} else {
+				return null;
+			}
+		
+	}
+	
+	
 }

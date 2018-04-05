@@ -55,7 +55,7 @@ public class AuthentificationServlet extends HttpServlet {
 		
 		if(user!=null) {
 			roles = user.getCodeProfil();
-			session.setAttribute("utilisateur", user); // spla
+			session.setAttribute("utilisateur", user); 
 		
 		}
 
@@ -63,26 +63,34 @@ public class AuthentificationServlet extends HttpServlet {
 		switch (roles) {
 		case Roles.ADMIN:
 			rd = req.getRequestDispatcher("/WEB-INF/AccueilAdmin.jsp");
+			System.out.println(roles);
 			break;
 			
 		case Roles.FORMATEUR:
-			rd = req.getRequestDispatcher("/WEB-INF/AccueilNoob.jsp");
+			rd = req.getRequestDispatcher("/WEB-INF/AccueilFormateur.jsp");
+			System.out.println(roles);
 			break;
 			
 		case Roles.RESPONSABLE_DE_FORMATION:
+			rd = req.getRequestDispatcher("/WEB-INF/AccueilRDF.jsp");
+			System.out.println(roles);
 			break;
 
 		case Roles.CELLULE_DE_RECRUTEMENT:
-
+			rd = req.getRequestDispatcher("/WEB-INF/AccueilCDR.jsp");
+			System.out.println(roles);
 			break;
 		case Roles.STAGIAIRE:
+			rd = req.getRequestDispatcher("/WEB-INF/AccueilStagiaire.jsp");
+			System.out.println(roles);
 			break;
 			
 		case Roles.CANDIDAT:
+			rd = req.getRequestDispatcher("/WEB-INF/AccueilCandidat.jsp");
+			System.out.println(roles);
 			break;
 			
 		default:
-			//req.setAttribute("erreur", "Login ou mot de passe incorrect");
 			doGet(req, resp);
 			break;
 		}
