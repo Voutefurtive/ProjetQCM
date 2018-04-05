@@ -14,11 +14,17 @@ public class SectionTest implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int nbQuestion;
-	private Theme theme;
+	private int idTheme;
 	private Test test;
 	
 	public SectionTest() {
 		super();
+	}
+	
+	public SectionTest(int nbQuestion, int idTheme, Test test) {
+		this.nbQuestion = nbQuestion;
+		this.idTheme = idTheme;
+		this.test = test;
 	}
 
 	public int getNbQuestion() {
@@ -29,12 +35,12 @@ public class SectionTest implements Serializable{
 		this.nbQuestion = nbQuestion;
 	}
 
-	public Theme getTheme() {
-		return theme;
+	public int getIdTheme() {
+		return idTheme;
 	}
 
-	public void setTheme(Theme theme) {
-		this.theme = theme;
+	public void setIdTheme(int idTheme) {
+		this.idTheme = idTheme;
 	}
 
 	public Test getTest() {

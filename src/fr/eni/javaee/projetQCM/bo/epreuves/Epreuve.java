@@ -24,14 +24,14 @@ public class Epreuve implements Serializable{
 	private float noteObtenue;
 	private String niveauObtenu;
 	private int idUtilisateur;
-	private int idTest;
+	private Test test;
 	
 	public Epreuve() {
 		super();
 	}
 
 	public Epreuve(int idEpreuve, Date dateDebut, Date dateFin, int tempsEcoule, String etat, float noteObtenue,
-			String niveauObtenu, int idUtilisateur, int idTest) {
+			String niveauObtenu, int idUtilisateur, Test test) {
 		super();
 		this.idEpreuve = idEpreuve;
 		this.dateDebut = dateDebut;
@@ -41,7 +41,7 @@ public class Epreuve implements Serializable{
 		this.noteObtenue = noteObtenue;
 		this.niveauObtenu = niveauObtenu;
 		this.idUtilisateur = idUtilisateur;
-		this.idTest = idTest;
+		this.test = test;
 	}
 
 	public int getIdEpreuve() {
@@ -108,12 +108,12 @@ public class Epreuve implements Serializable{
 		this.idUtilisateur = idUtilisateur;
 	}
 
-	public int getIdTest() {
-		return idTest;
+	public Test getTest() {
+		return test;
 	}
 
-	public void setIdTest(int idTest) {
-		this.idTest = idTest;
+	public void setIdTest(Test test) {
+		this.test = test;
 	}
 	
 }

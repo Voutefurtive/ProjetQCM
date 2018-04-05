@@ -22,9 +22,19 @@ public class Test implements Serializable{
 	private int seuilBas;
 	private List<SectionTest> sections;
 	private List<Epreuve> epreuves;
+	private int nbQuestions;
 
 	public Test() {
 		super();
+	}
+	
+	public Test(int idTest, String libelle, String description, int duree, int seuilHaut, int seuilBas) {
+		this.idTest = idTest;
+		this.libelle = libelle;
+		this.description = description;
+		this.duree = duree;
+		this.seuilHaut = seuilHaut;
+		this.seuilBas = seuilBas;
 	}
 
 	public int getIdTest() {
@@ -93,5 +103,15 @@ public class Test implements Serializable{
 	
 	public void addEpreuve(Epreuve epreuve) {
 		this.epreuves.add(epreuve);
+	}
+	
+	public int getNbQuestions() {
+		this.nbQuestions = 0;
+		
+		for (SectionTest section: sections) {
+			this.nbQuestions += section.getNbQuestion();
+		}
+		
+		return this.nbQuestions;
 	}
 }

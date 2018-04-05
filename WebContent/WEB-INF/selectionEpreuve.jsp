@@ -11,7 +11,15 @@
 	<body>
 		<h2>Tests dispo du candidat ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom}</h2>
 		<c:forEach var="epreuve" items="${epreuves}">
-			<a href="question">Épreuve n°${epreuve.idEpreuve}</a><br>
+<%-- 			<c:choose> --%>
+<%-- 				<c:when test="${epreuve.dateFin >= new Date() && epreuve.dateDebut <= new Date() }"> --%>
+<%-- 					<a href="question?id=${epreuve.idTest }">Épreuve n°${epreuve.idEpreuve}</a><br> --%>
+<%-- 				</c:when> --%>
+<%-- 				<c:when test="${epreuve.dateFin >= new Date() && epreuve.dateDebut > new Date() }"> --%>
+<%-- 					<label>Épreuve n°${epreuve.idEpreuve} (Vous n'avez pas accès à cette épreuve avant le ${epreuve.dateDebut})</label><br> --%>
+<%-- 				</c:when> --%>
+<%-- 			</c:choose> --%>
+			<a href="detailTest?idTest=${epreuve.test.idTest }&idEpreuve=${epreuve.idEpreuve}">Épreuve n°${epreuve.idEpreuve}</a><br>
 		</c:forEach>
 	</body>
 </html>

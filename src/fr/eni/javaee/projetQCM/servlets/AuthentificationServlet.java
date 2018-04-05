@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.projetQCM.bll.EpreuveManager;
 import fr.eni.javaee.projetQCM.bll.UserManager;
 import fr.eni.javaee.projetQCM.bo.Roles;
 import fr.eni.javaee.projetQCM.bo.User;
@@ -80,8 +81,12 @@ public class AuthentificationServlet extends HttpServlet {
 			break;
 			
 		case Roles.CANDIDAT:
-			break;
+			EpreuveManager epreuveMger = new EpreuveManager();
+			req.setAttribute("epreuves", epreuveMger.getEpreuvesByUser(user.getId()));
 			
+			rd = req.getRequestDispatcher("/WEB-INF/selectionEpreuve.jsp");
+			break;
+				
 		default:
 			//req.setAttribute("erreur", "Login ou mot de passe incorrect");
 			doGet(req, resp);

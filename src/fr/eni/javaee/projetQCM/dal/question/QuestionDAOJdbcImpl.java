@@ -18,10 +18,12 @@ public class QuestionDAOJdbcImpl implements QuestionDAO {
 	public List<Question> selectQuestionsByTheme(int nbQuestion, int idTheme) {
 
 		List<Question> listeQuestions = new ArrayList<>();
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
 
 		try {
-			Connection cnx = ConnectionProvider.getConnection();
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_PARTIAL_BY_THEME);
+			cnx = ConnectionProvider.getConnection();
+			pstmt = cnx.prepareStatement(SELECT_PARTIAL_BY_THEME);
 			pstmt.setInt(1, nbQuestion);
 			pstmt.setInt(2, idTheme);
 			ResultSet rs = pstmt.executeQuery();
@@ -49,6 +51,13 @@ public class QuestionDAOJdbcImpl implements QuestionDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				cnx.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return listeQuestions;
