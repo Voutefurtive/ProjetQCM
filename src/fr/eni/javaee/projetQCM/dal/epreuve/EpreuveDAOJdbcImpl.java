@@ -42,6 +42,7 @@ public class EpreuveDAOJdbcImpl implements EpreuveDAO {
 				Test test = new Test();
 				test.setDescription(rs.getString("description"));
 				test.setIdTest(rs.getInt("idTest"));
+				test.setLibelle(rs.getString("libelle"));
 				
 				Epreuve epreuveCourante = new Epreuve(
 						rs.getInt("idEpreuve"),

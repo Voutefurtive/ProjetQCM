@@ -7,9 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Accueil candidat</title>
+<%@include file="/WEB-INF/imports.html" %>
 </head>
 <body>
-
+	<%@include file="/WEB-INF/header.html" %>
 		<c:if test="${!empty sessionScope.utilisateur.nom }">
 		<h1>Wouelkom ${ sessionScope.utilisateur.nom } !</h1>
 		</c:if>

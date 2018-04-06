@@ -9,6 +9,7 @@
 <title>Authentification</title>
 </head>
 <body>
+	<%@include file="/WEB-INF/header.html" %>
 	<h1>Veuillez vous connecter</h1>
 
 	<div id="loginField">

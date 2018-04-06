@@ -9,6 +9,7 @@
 		<%@include file="/WEB-INF/imports.html" %>
 	</head>
 	<body>
+		<%@include file="/WEB-INF/header.html" %>
 		<h2>Intitulé de l'épreuve : ${sessionScope.test.libelle}</h2>
 		<hr>
 		<h4>Description</h4>

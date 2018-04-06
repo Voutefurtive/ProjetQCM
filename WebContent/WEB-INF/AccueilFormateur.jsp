@@ -10,7 +10,7 @@
 <%@include file="/WEB-INF/imports.html" %>
 </head>
 <body>
-
+	<%@include file="/WEB-INF/header.html" %>
 		
 		<c:if test="${!empty sessionScope.utilisateur.nom }">
 		<h1>Ouelcom ${ sessionScope.utilisateur.nom } !</h1>
